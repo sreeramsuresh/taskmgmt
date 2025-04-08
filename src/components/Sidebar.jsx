@@ -10,6 +10,7 @@ import {
   LogOut,
   CheckSquare,
   User,
+  Users,
 } from "lucide-react";
 
 const SidebarContainer = styled.div`
@@ -200,6 +201,15 @@ function Sidebar({ currentUser, activeTab, setActiveTab }) {
             >
               <FileText size={20} />
               <span>Engagements</span>
+            </button>
+          </li>
+          <li>
+            <button
+              className={activeTab === "resources" ? "active" : ""}
+              onClick={() => setActiveTab("resources")}
+            >
+              <Users size={20} />
+              <span>Resource Pool</span>
             </button>
           </li>
           <li>

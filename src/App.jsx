@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { CheckSquare, LogOut, Settings } from "lucide-react";
+import {
+  CheckSquare,
+  LogOut,
+  Settings as SettingsIcon,
+  Users,
+} from "lucide-react";
 
 // Components
 import Sidebar from "./components/Sidebar";
@@ -10,6 +15,8 @@ import ClientList from "./components/ClientList";
 import ClientDetails from "./components/ClientDetails";
 import EngagementList from "./components/EngagementList";
 import TimesheetManager from "./components/TimesheetManager";
+import Settings from "./components/Settings";
+import ResourcePool from "./components/ResourcePool/ResourcePool"; // Import the new ResourcePool component
 
 // Data
 import {
@@ -126,6 +133,16 @@ function App() {
             tasks={tasks}
             timesheets={timesheets}
             getProjectById={getProjectById}
+          />
+        )}
+
+        {activeTab === "settings" && <Settings currentUser={currentUser} />}
+
+        {activeTab === "resources" && (
+          <ResourcePool
+            users={initialUsers}
+            projects={projects}
+            tasks={tasks}
           />
         )}
       </MainContent>
